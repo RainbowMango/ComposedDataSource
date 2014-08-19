@@ -19,7 +19,7 @@ self.tableView.dataSource = composedDataSource
 ```
 And here is an example of a more complex composition:
 
-```
+```swift
 let composedDataSource1 = ...
 let composedDataSource2 = ...
 
