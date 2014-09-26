@@ -43,13 +43,13 @@ class ComposedDataSource: DataSource {
         }
     }
         
-    override func heightForRowAtIndexPath(indexPath: NSIndexPath!) -> CGFloat {
+    override func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
         let (dataSource, localSection) = dataSourceIndex[indexPath.section]!
         let localIndexPath = NSIndexPath(forRow: indexPath.row, inSection: localSection)
         return dataSource.heightForRowAtIndexPath(localIndexPath)
     }
     
-    override func selectRowAtIndexPath(indexPath: NSIndexPath!) {
+    override func selectRowAtIndexPath(indexPath: NSIndexPath) {
         let (dataSource, localSection) = dataSourceIndex[indexPath.section]!
         let localIndexPath = NSIndexPath(forRow: indexPath.row, inSection: localSection)
         dataSource.selectRowAtIndexPath(localIndexPath)
@@ -67,7 +67,7 @@ class ComposedDataSource: DataSource {
     
     /// MARK: UITableViewDataSource
     
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         var numberOfSections: Int = 0
         
@@ -97,18 +97,18 @@ class ComposedDataSource: DataSource {
         return numberOfSections
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let (dataSource, localSection) = dataSourceIndex[section]!
         return dataSource.tableView(tableView, numberOfRowsInSection:localSection)
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let (dataSource, localSection) = dataSourceIndex[indexPath.section]!
         let localIndexPath = NSIndexPath(forRow: indexPath.row, inSection: localSection)
         return dataSource.tableView(tableView, cellForRowAtIndexPath: localIndexPath)
     }
     
-    override func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.shouldDisplayDefaultTitles {
             let (dataSource, localSection) = dataSourceIndex[section]!
             return dataSource.tableView(tableView, titleForHeaderInSection: localSection)
@@ -116,7 +116,7 @@ class ComposedDataSource: DataSource {
         return nil
     }
     
-    override func tableView(tableView: UITableView!, titleForFooterInSection section: Int) -> String! {
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if self.shouldDisplayDefaultTitles {
             let (dataSource, localSection) = dataSourceIndex[section]!
             return dataSource.tableView(tableView, titleForFooterInSection: localSection)

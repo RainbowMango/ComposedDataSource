@@ -22,35 +22,35 @@ class DataSource: NSObject, UITableViewDataSource {
         return nil
     }
     
-    func heightForRowAtIndexPath(indexPath: NSIndexPath!) -> CGFloat {
+    func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
         return 0.0
     }
     
-    func selectRowAtIndexPath(indexPath: NSIndexPath!) {
+    func selectRowAtIndexPath(indexPath: NSIndexPath) {
     }
     
     /// MARK: UITableViewDataSource
     
-    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        return nil
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell(style: .Default, reuseIdentifier: nil)
     }
     
-    func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if shouldDisplayDefaultTitles {
             return self.titleForHeaderInSection(section)
         }
         return nil
     }
     
-    func tableView(tableView: UITableView!, titleForFooterInSection section: Int) -> String! {
+    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if shouldDisplayDefaultTitles {
             return self.titleForFooterInSection(section)
         }
