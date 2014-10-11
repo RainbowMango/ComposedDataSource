@@ -40,7 +40,7 @@ Requirements
 Contact
 -------
 
-If you are using SwiftForms in your project and have any suggestion or question:
+If you are using ComposedDataSource in your project and have any suggestion or question:
 
 Miguel Angel Ortuño, <ortuman@gmail.com>
 
