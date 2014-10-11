@@ -37,7 +37,7 @@ class ViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .Bordered, target: self, action: "back:")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Bordered, target: self, action: "next:")
         
-        self.navigationItem.leftBarButtonItem.enabled = false
+        self.navigationItem.leftBarButtonItem?.enabled = false
         
         setupDataSource()
     }
@@ -50,10 +50,10 @@ class ViewController: UITableViewController {
             currentPage--
             setupDataSource()
             
-            self.navigationItem.rightBarButtonItem.enabled = true
+            self.navigationItem.rightBarButtonItem?.enabled = true
             
             if currentPage == 1 {
-                self.navigationItem.leftBarButtonItem.enabled = false
+                self.navigationItem.leftBarButtonItem?.enabled = false
             }
         }
     }
@@ -64,17 +64,17 @@ class ViewController: UITableViewController {
             currentPage++
             setupDataSource()
             
-            self.navigationItem.leftBarButtonItem.enabled = true
+            self.navigationItem.leftBarButtonItem?.enabled = true
             
             if currentPage == maxDataSourceCount {
-                self.navigationItem.rightBarButtonItem.enabled = false
+                self.navigationItem.rightBarButtonItem?.enabled = false
             }
         }
     }
     
     /// MARK: UITableView delegate
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch( currentPage ) {
         case 1:
             return shopItemsDataSource.heightForRowAtIndexPath(indexPath)
@@ -92,7 +92,7 @@ class ViewController: UITableViewController {
         return 0.0
     }
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         switch( currentPage ) {
         case 1:

@@ -27,11 +27,11 @@ class ShopItemListDataSource: DataSource {
     
     /// MARK: Public interface
     
-    override func heightForRowAtIndexPath(indexPath: NSIndexPath!) -> CGFloat {
+    override func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
         return Constants.cellHeight
     }
     
-    override func selectRowAtIndexPath(indexPath: NSIndexPath!) {
+    override func selectRowAtIndexPath(indexPath: NSIndexPath) {
         let item = items[indexPath.row]
         let alert = UIAlertView(title: item.name, message: item.details, delegate: nil, cancelButtonTitle: nil)
         alert.addButtonWithTitle("OK")
@@ -48,11 +48,11 @@ class ShopItemListDataSource: DataSource {
     
     /// MARK: UITableViewDataSource
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countElements(items)
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifier) as? ShopItemCell
         
@@ -62,6 +62,6 @@ class ShopItemListDataSource: DataSource {
         cell?.detail.text = item.details
         cell?.dateString.text = dateFormatter.stringFromDate(item.expirationDate)
         
-        return cell
+        return cell!
     }
 }

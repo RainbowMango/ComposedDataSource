@@ -12,14 +12,14 @@ import XCTest
 class ShopItemListDataSourceTest: ShopItemListDataSource {
     
     var selected = false
-    override func selectRowAtIndexPath(indexPath: NSIndexPath!) {
+    override func selectRowAtIndexPath(indexPath: NSIndexPath) {
         selected = true
     }
 }
 
 class FilmItemListDataSourceTest: FilmItemListDataSource {
     var selected = false
-    override func selectRowAtIndexPath(indexPath: NSIndexPath!) {
+    override func selectRowAtIndexPath(indexPath: NSIndexPath) {
         selected = true
     }
 }
@@ -84,13 +84,16 @@ class ComposedDataSourceTest: XCTestCase {
         composedDataSource3.dataSources = [composedDataSource1, filmsItemsDataSource, composedDataSource2]
         
         // build up internal indexes
-        composedDataSource1.numberOfSectionsInTableView(nil)
-        composedDataSource2.numberOfSectionsInTableView(nil)
-        composedDataSource3.numberOfSectionsInTableView(nil)
+        let tableView = UITableView()
+        
+        composedDataSource1.numberOfSectionsInTableView(tableView)
+        composedDataSource2.numberOfSectionsInTableView(tableView)
+        composedDataSource3.numberOfSectionsInTableView(tableView)
     }
 
     func testNumberOfSections() {
-        let numberOfSections = composedDataSource3.numberOfSectionsInTableView(nil)
+        let tableView = UITableView()
+        let numberOfSections = composedDataSource3.numberOfSectionsInTableView(tableView)
         XCTAssertEqual(numberOfSections, 6, "Expected number of sections 6 not \(numberOfSections)")
     }
     

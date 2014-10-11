@@ -19,7 +19,7 @@ class FilmItemListDataSource: DataSource {
     
     /// MARK: Public interface
     
-    override func heightForRowAtIndexPath(indexPath: NSIndexPath!) -> CGFloat {
+    override func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
         return Constants.cellHeight
     }
     
@@ -27,7 +27,7 @@ class FilmItemListDataSource: DataSource {
         return "Films"
     }
     
-    override func selectRowAtIndexPath(indexPath: NSIndexPath!) {
+    override func selectRowAtIndexPath(indexPath: NSIndexPath) {
         let film = items[indexPath.row]
         let alert = UIAlertView(title: film.director, message: film.name, delegate: nil, cancelButtonTitle: nil)
         alert.addButtonWithTitle("OK")
@@ -36,15 +36,15 @@ class FilmItemListDataSource: DataSource {
     
     /// MARK: UITableViewDataSource
     
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countElements(items)
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifier) as? FilmItemCell
         
@@ -54,6 +54,6 @@ class FilmItemListDataSource: DataSource {
         cell?.director.text = item.director
         cell?.year.text = "\(item.year)"
         
-        return cell
+        return cell!
     }
 }
