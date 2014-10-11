@@ -32,6 +32,20 @@ composedDataSource3.dataSources = [composedDataSource1, pictureListDataSource, c
 self.tableView.dataSource = composedDataSource3
 ```
 
+Requirements
+---------------------
+
+* iOS 7.0 and above
+
+Contact
+-------
+
+If you are using SwiftForms in your project and have any suggestion or question:
+
+Miguel Angel Ortuño, <ortuman@gmail.com>
+
+[@ortuman](http://twitter.com/ortuman)
+
 ## Licence
 
 ComposedDataSource is released under a BSD License. See LICENSE file for details.
