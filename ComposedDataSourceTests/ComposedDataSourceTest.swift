@@ -109,12 +109,12 @@ class ComposedDataSourceTest: XCTestCase {
     
     func testShopItemHeightOfRow() {
         let rowHeight = composedDataSource3.heightForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 4))
-        XCTAssertEqual(rowHeight, 75.0, "Not expected row height value")
+        XCTAssertEqual(Float(rowHeight), Float(75.0), "Not expected row height value")
     }
     
     func testFilmItemHeightOfRow() {
         let rowHeight = composedDataSource3.heightForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 3))
-        XCTAssertEqual(rowHeight, 60.0, "Not expected row height value")
+        XCTAssertEqual(Float(rowHeight), Float(60.0), "Not expected row height value")
     }
     
     func testShopItemSelect() {
